@@ -24,10 +24,6 @@ import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
-/**
- *
- * @author nth15
- */
 @Entity
 @Table(name = "ProductTypes", catalog = "TechLine", schema = "dbo", uniqueConstraints = {
     @UniqueConstraint(columnNames = {"typeName"})})
@@ -60,8 +56,6 @@ public class ProductTypes implements Serializable {
     private Boolean typeStatus;
     @OneToMany(mappedBy = "typeId")
     private Collection<Products> productsCollection;
-    @OneToMany(mappedBy = "typeId")
-    private Collection<Brands> brandsCollection;
     @JoinColumn(name = "categoryId", referencedColumnName = "categoryId")
     @ManyToOne
     private Categories categoryId;
@@ -120,15 +114,6 @@ public class ProductTypes implements Serializable {
 
     public void setProductsCollection(Collection<Products> productsCollection) {
         this.productsCollection = productsCollection;
-    }
-
-    @XmlTransient
-    public Collection<Brands> getBrandsCollection() {
-        return brandsCollection;
-    }
-
-    public void setBrandsCollection(Collection<Brands> brandsCollection) {
-        this.brandsCollection = brandsCollection;
     }
 
     public Categories getCategoryId() {

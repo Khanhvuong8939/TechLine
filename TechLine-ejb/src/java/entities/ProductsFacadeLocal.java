@@ -9,10 +9,6 @@ package entities;
 import java.util.List;
 import javax.ejb.Local;
 
-/**
- *
- * @author nth15
- */
 @Local
 public interface ProductsFacadeLocal {
 
@@ -30,4 +26,7 @@ public interface ProductsFacadeLocal {
 
     int count();
     
+    List<Products> getListProductByDatePost();
+    
+    List<Products> getListProductByDiscount();
 }
